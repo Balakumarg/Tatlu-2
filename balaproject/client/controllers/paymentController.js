@@ -1,22 +1,29 @@
-angular.module('tatluApp').controller('VisitController', function($scope, $http) {
+angular.module('tatluApp').controller('PaymentController', function($scope, $http) {
 
-  $scope.RefreshVisit = function () {
-        $http.get('/visit/visit').success(function (response) {
+  $scope.RefreshPayment = function () {
+        $http.get('/payment/payment').success(function (response) {
             console.log(' READ IS SUCCESSFUL');
-            $scope.visitList = response;
-            $scope.visit = "";
+            $scope.paymentList = response;
+            $scope.payment = "";
         });
     };
 
-   $scope.RefreshVisit();
+   $scope.RefreshPayment();
+
+   $scope.pageChangeHandler = function(num) {
+     console.log('going to page ' + num);
+   };
+   $scope.currentPage = 1;
+   $scope.pageSize = 5;
+   $scope.meals = [];
 
     $scope.datepickerConfig = {
              allowFuture: false,
              dateFormat: 'DD/MM/YYYY'
          };
 
-$scope.addVisit=function(){
-if ($scope.visitForm.$valid) {
+$scope.addPayment=function(){
+if ($scope.paymentForm.$valid) {
         var date = new Date();
         var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
         var am_pm = date.getHours() >= 12 ? "PM" : "AM";
@@ -25,15 +32,15 @@ if ($scope.visitForm.$valid) {
         var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
       var  time = hours + ":" + minutes + ":"  + am_pm;
 
-      $scope.visit.visitTime=time;
+      $scope.payment.paymentTime=time;
 
-$http.post('/visit/visit', $scope.visit).success(function (response) {
+$http.post('/payment/payment', $scope.payment).success(function (response) {
 console.log(response);
 
-        alert("Visit Saved!!!!");
+        alert("Payment Saved!!!!");
 location.reload(true);
-  
-      // $scope.RefreshVisit();
+
+
   });
 }
 }

@@ -64,7 +64,7 @@ if($scope.formList[i].doctorRegDel!=true){
 
 	    refreshfacility();
 
-
+$scope.facilitytypes=["Hospital","Ambulatory Surgical Center","Doctor’s Office","Urgent Care Clinic","Nursing Home"];
 
 
 $scope.Savefacility=function(){
