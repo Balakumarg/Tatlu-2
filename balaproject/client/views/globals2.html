@@ -1,0 +1,40 @@
+<div>
+  <h4>Edit Global settings</h4>
+  <br>
+  <div layout-gt-sm="column">
+     <div class="col-xs-4">
+  Calender type  <md-select placeholder="Calender screen" ng-model= "global2.calender" >
+   <md-option ng-repeat="o in calender" ng-value="o">{{o}}</md-option>
+  </md-select>
+</div>
+<div class="col-xs-4">
+
+               Calender Starting Hour &nbsp; <input type="number" value="08" min="00" max="23" step="01" ng-model= "global2.starting">
+           </div>
+           <br>
+           <div class="col-xs-4">
+
+               Calender Ending Hour &nbsp; <input type="number" value="17" min="00" max="23" step="01" ng-model= "global2.ending"><br><br>
+
+              </div>
+             <br>
+              <div class="col-xs-4">
+                          Calender interval  <md-select placeholder="00" ng-model= "global2.interval">
+                             <md-option ng-repeat="o in interval" ng-value="o">{{o}}</md-option>
+                            </md-select>
+                          </div>
+                          <div class="col-xs-4">
+                                    Appointment Display Style  <md-select placeholder="select" ng-model= "global2.appmntstyle" >
+                                         <md-option ng-repeat="o in appmntstyle" ng-value="o">{{o}}</md-option>
+                                        </md-select>
+                                      </div>
+
+
+</div>
+<br>
+    <md-button class="md-primary" ng-click="addGlobalSetting2()">Save & Next</md-button>
+
+
+
+
+</div>

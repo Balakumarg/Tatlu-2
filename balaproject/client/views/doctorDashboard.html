@@ -1,0 +1,127 @@
+
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+.label {
+  color: rgb(63,81,181);
+}
+
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>ADD PATIENT DETAILS</h3>
+       </div>
+       <hr>
+
+       <h4>CREATE NEW VISIT:</h4>
+       <div class="body">
+
+
+
+
+
+
+
+<form name="patientForm"  class="container-fluid" ng-submit="submit()">
+
+          <div >
+            <md-input-container>
+              <label>Patient Name </label>
+              <input  type="text"  name="patname"   ng-model ="doctorDashboard.patientName" ng-pattern="/^(\D)+$/" ng-required="true">
+              <div ng-messages="patientForm.patname.$error">
+                <div ng-message="required">Patient Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Patient Name is too short..</div>
+                   <div ng-message="maxlength">Patient Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div> <br>
+
+          <div >
+            <md-input-container>
+              <label>Patient ID </label>
+              <input  type="text" name="patid"   ng-model ="doctorDashboard.patientID"  ng-required="true">
+              <div ng-messages="patientForm.patid.$error">
+                <div ng-message="required">Patient ID is required.</div>
+
+              </div>
+            </md-input-container>
+          </div><br>
+
+          <div >
+            <md-input-container>
+              <label>Patient summary </label>
+              <input  type="text" name="patsum"  ng-model ="doctorDashboard.patientsum"  ng-required="true">
+              <div ng-messages="patientForm.patsum.$error">
+                <div ng-message="required">Patient summary is required.</div>
+
+              </div>
+            </md-input-container>
+          </div><br>
+
+          <div >
+            <md-input-container>
+              <label>Chief complaint </label>
+              <input  type="text" name="patcomp"  ng-model ="doctorDashboard.patientcomp"  ng-required="true">
+              <div ng-messages="patientForm.patcomp.$error">
+                <div ng-message="required">Chief complaint is required.</div>
+
+              </div>
+            </md-input-container>
+          </div><br>
+
+          <div >
+            <md-input-container>
+              <label>Treatment plan </label>
+              <input  type="text" name="pattreat"  ng-model ="doctorDashboard.patienttreat"  ng-required="true">
+              <div ng-messages="patientForm.pattreat.$error">
+                <div ng-message="required">Treatment plan is required.</div>
+
+              </div>
+            </md-input-container>
+          </div><br>
+
+          <div >
+            <md-input-container>
+              <label>Lab order </label>
+              <input  type="text" name="patlab"  ng-model ="doctorDashboard.patientlab" >
+
+            </md-input-container>
+          </div><br>
+
+          <div >
+            <md-input-container>
+              <label>Prescription  </label>
+              <input  type="text" name="patname"  ng-model ="doctorDashboard.prescription"  >
+
+            </md-input-container>
+          </div><br>
+
+
+          <div >
+            <md-input-container>
+              <label>Update current medicine </label>
+              <input  type="text" name="patname"  ng-model ="doctorDashboard.updateCurrent" >
+
+            </md-input-container>
+          </div><br>
+
+
+
+
+        <md-button type="button" ng-click="resetpatient(patient)">RESET</md-button>
+        <md-button class="md-primary" ng-disabled="patientForm.$invalid" ng-click="addDoctorVisit()">SUBMIT</md-button>
+      </form>
+
+
+
+    </div>
+        </md-content>
+    </div>

@@ -1,0 +1,103 @@
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Medications</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">View Medications</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+         <form ng-submit="addMedication()">
+         <label>Generic Name</label>
+         <input type="text" ng-model="medi.Generic"><br>
+         <label>Manufacturer Name</label>
+         <input type="text" ng-model="medi.Manufacturar"> <br>
+         <label>Manufacturer Id</label>
+         <input type="text" ng-model="medi.ManufacturerId"><br>
+         <label>Strength</label>
+         <input type="text" ng-model="medi.Strength"><br>
+         <label>Drug</label>
+         <select ng-model="medi.Drug">
+         <option></option>
+         </select><br>
+         <label>Drug Id</label>
+         <input type="text" ng-model="medi.DrugId"><br>
+         <label>Additional Info</label>
+         <textarea name="Reason" rows="6" cols="55" ng-model="medi.Info" required></textarea><br><br>
+         <button type="submit">Save</button>
+         <button type="reset">Reset</button>
+
+         </form>
+       </div>
+
+
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+
+
+<div ng-show="updateMedi">
+  <form ng-submit="updateMedication()">
+  <label>Generic Name</label>
+  <input type="text" ng-model="medi.Generic"><br>
+  <label>Manufacturer Name</label>
+  <input type="text" ng-model="medi.Manufacturar"> <br>
+  <label>Manufacturer Name</label>
+  <input type="text" ng-model="medi.ManufacturerId"><br>
+  <label>Strength</label>
+  <input type="text" ng-model="medi.Strength"><br>
+  <label>Drug</label>
+  <select ng-model="medi.Drug">
+  <option></option>
+  </select><br>
+  <label>Drug Id</label>
+  <input type="text" ng-model="medi.DrugId"><br>
+  <label>Additional Info</label>
+  <textarea name="Reason" rows="6" cols="55" ng-model="medi.Info" required></textarea><br><br>
+  <button type="submit">Update</button>
+  </form>
+</div>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Generic Name</th>
+          <th>Manufacturer name</th>
+          <th>Manufacturer Id</th>
+          <th>Strength</th>
+          <th>Drug</th>
+          <th>Drug Id</th>
+          <th>Additional Info</th>
+          <th>Action</th>
+
+
+
+
+        </tr>
+      </thead>
+      <tbody  ng-repeat="m in mediList">
+        <tr>
+          <td>{{$index + 1}}</td>
+          <td>{{m.Generic}}</td>
+          <td>{{m.Manufacturar}}</td>
+          <td>{{m.ManufacturerId}}</td>
+          <td>{{m.Strength}}</td>
+          <td>{{m.Drug}}</td>
+            <td>{{m.DrugId}}</td>
+           <td>{{m.Info}}</td>
+
+
+<td><button type="button" ng-click="editMedication(m)">Edit</button>
+<button type="button" ng-click="removeMedication(m)">Delete</button>
+</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+       </div>
+
+     </div>
+    </div>
+  </div></div></div>

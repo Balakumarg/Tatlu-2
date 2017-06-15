@@ -1,0 +1,268 @@
+
+
+<div ng-show="patientsearch">
+<label>patient Id</label>
+<input type="text" ng-model="serchingId">
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Patient Id</th>
+        <th>patient Name</th>
+        <th>Phone No</th>
+        <th>Membership No</th>
+      </tr>
+    </thead>
+    <tbody  ng-repeat="m in patientList |filter:serchingId">
+      <tr>
+        <td>{{m.id}}</td>
+        <td>{{m.firstName}}</td>
+        <td>{{m.mobile}}</td>
+        <td>{{m.membershipType}}</td>
+
+
+
+<td><button type="button" ng-click="showAddForm(m)">Add Member</button>
+</td>
+
+      </tr>
+    </tbody>
+  </table></div>
+
+<div ng-show="patientadd">
+  <form>
+    <input type="radio" ng-model="myVar" value="exist">Existing Member
+    <input type="radio" ng-model="myVar" value="new">Add New Member
+  </form>
+
+  <div ng-switch="myVar">
+    <div ng-switch-when="exist">
+        <div class="row">
+        <div class="col-sm-6">
+
+          <input ng-model="serchpatient" id="search" class="form-control" placeholder="Filter text">
+
+          <table class="table">
+
+           <thead>
+             <tr>
+
+               <th>Profile Image</th>
+               <th>Patient Id</th>
+               <th>Patient Name</th>
+               <th>Action</th>
+
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat="p in patientList | filter:serchpatient | startFrom:currentPage*pageSize | limitTo:pageSize" ng-if="p.id!=lead">
+               <td><img src="uploads/{{p.profileImage}}" alt="patientImage" height="70px"></td>
+               <td>{{p.id}}</td>
+               <td>{{p.firstName}}</td>
+
+               <td><button type="button" ng-click="viewDetails(p)" data-toggle="modal" data-target="#myModal">View</button>
+       <button ng-disabled="isDisabled(p)" ng-click="addAnother(p)">Add</button></td>
+             </tr>
+             <tr><td colspan="5">  <div class="col-sm-6">   <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                      Previous
+                  </button>
+                  {{currentPage+1}}/{{numberOfPages()}}
+                  <button  ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                      Next
+                  </button></div></td>
+             </tr>
+
+           </tbody>
+         </table></div>
+
+         <div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+
+     <!-- Modal content-->
+     <div class="modal-content" style=" width: 50%;margin-left: 100px;">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title" style="text-align:center">{{patientView.patientname}}</h4>
+       </div>
+       <div class="modal-body">
+         <img src="uploads/{{patientView.profileImage}}" alt="patientImage"   style="width: 100%;height: 50%;"><br><br>
+         Patient Id: {{patientView.id}}<br>
+         Date Of Birth: {{patientView.dob}}<br>
+         Mobile No: {{patientView.mobile}}<br>
+         E-mail: {{patientView.email}}<br>
+         Address: {{patientView.address}}<br>
+
+
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+
+   </div>
+ </div></div>
+
+         <div class="col-sm-6">
+           <div  ng-show="ShowAdded">
+<ul id="addlist">
+  <li ng-repeat="mp in memberArray">
+
+      <button ng-click="remove(mp)">X</button>
+
+      <img class="thumbnail" src="uploads/{{mp.profileImage}}" alt="patientImage"   style="width: 25%;height: 50%;"><br><br>
+     Id: {{mp.id}}
+
+     Enter RelasionShip:<input type="text" ng-model="mp.relashionship"/>
+
+   </li>
+
+
+
+</ul>
+<button ng-disabled="memberArray.length==0" ng-click="Confirmmembership()">Add&Next</button>
+      </div>
+
+    </div></div>
+
+
+    <div ng-switch-when="new">
+      <fieldset  data-ng-repeat="choice in choices">
+        <form name="patientForm" class="container-fluid" ng-submit="submit()">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Patient Name </label>
+                      <input type="text" name="patname" id="patname" ng-model ="choice.patientname" ng-pattern="/^(\D)+$/" ng-required="true">
+                      <div ng-messages="patientForm.patname.$error">
+                        <div ng-message="required">Patient Name is required.</div>
+                        <div ng-message="pattern">Please Enter letters only.</div>
+                        <div ng-message="minlength">Patient Name is too short..</div>
+                           <div ng-message="maxlength">Patient Name is too long.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>DOB </label>
+                      <input name="dob" ng-model ="choice.dob" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+                      <div ng-messages="patientForm.dob.$error">
+                        <div ng-message="required">DOB is required.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                     <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Age </label>
+                      <input type="text" name="age" id="age" ng-model ="choice.age"  ng-required="true">
+                      <div ng-messages="patientForm.age.$error">
+                        <div ng-message="required">Age is required.</div>
+                        <div ng-message="pattern">Please Enter numbers only.</div>
+
+                      </div>
+                    </md-input-container>
+                  </div>
+                </div>
+                <div class="row">
+                   <div class="col-xs-4">
+                    <md-input-container>
+                       <label>Gender </label>
+                      <md-select name="gender" ng-change="genId($index)"  id="gender" placeholder="Gender" ng-model="choice.gender" ng-required="true">
+                        <md-option ng-repeat="o in gender" ng-value="o">{{o}}</md-option>
+                      </md-select>
+                      <div ng-messages="patientForm.gender.$error">
+                        <div ng-message="required">Gender is required.</div>
+                      </div>
+                    </md-input-container>
+
+
+                    <label>PatientId</label>
+                    <input type="text" ng-readonly="showid" id="patId" ng-model="choice.id">
+
+
+
+                  </div>
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Mobile No </label>
+                      <input type="text" name="mobile" id="mobile" ng-model ="choice.mobile"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+                      <div ng-messages="patientForm.mobile.$error">
+                        <div ng-message="required">Mobile No is required.</div>
+                        <div ng-message="pattern">Please Enter Valid Mobile No.</div>
+                        <div ng-message="minlength">Mobile No is too short..</div>
+                           <div ng-message="maxlength">Mobile No is too long.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Email </label>
+                      <input type="text" name="email" id="email" ng-model ="choice.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+                      <div ng-messages="patientForm.email.$error">
+                        <div ng-message="required">Email is required.</div>
+                          <div ng-message="pattern">Please Enter Valid Email.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+
+                </div>
+                <div class="row">
+
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Profile Image</label>&nbsp;
+                      <input type="file" name="profileimage" id="profileimage"  ng-model ="choice.profileimage" file-model ="myFile"  accept=".jpg,.jpeg,.png">
+                      <div ng-messages="patientForm.profileimage.$error">
+                        <div ng-message="required">profile Image is required.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>User Name</label>
+                      <input type="text" name="username" id="username" ng-model ="choice.userName" ng-minlength="3" ng-maxlength="8" ng-required="true">
+                      <div ng-messages="patientForm.username.$error">
+                        <div ng-message="required">Username is required.</div>
+                        <div ng-message="minlength">Username is too short..</div>
+                           <div ng-message="maxlength">Username is too long.</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Password</label>
+                      <input type="password" name="Password" id="Password" ng-model ="choice.Password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-required="true">
+                      <div ng-messages="patientForm.Password.$error">
+                        <div ng-message="required">Password is required.</div>
+                        <div ng-message="pattern">Password should be atleast 8 characters long and should contain one number,one character and one special character
+              </div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                  <div class="col-xs-4">
+                    <md-input-container>
+                      <label>Confirm Password</label>
+                      <input type="password" name="cPassword" id="cPassword" ng-model ="choice.cPassword" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-required="true">
+                      <div ng-messages="patientForm.cPassword.$error">
+                        <div ng-message="required">Confirm Password is required.</div>
+                        <div ng-message="pattern">Password should be atleast 8 characters long and should contain one number,one character and one special character
+              </div>
+                      </div>
+                    </md-input-container>
+                  </div>
+
+                </div>
+                <md-button type="button" ng-click="resetpatient()">RESET</md-button>
+                <md-button class="md-primary" ng-disabled="patientForm.$invalid" ng-click="addpatient(choice)">SUBMIT</md-button>
+              </form>
+
+         <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+      </fieldset></div>
+
+
+  </div>
+</div>

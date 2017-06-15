@@ -1,0 +1,196 @@
+<style>
+.info-box-4 .content .text {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #FFF;
+}
+.info-box-4 .content .number {
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 0px;
+    color: #FFF;
+}
+.main-content {
+    margin-left: 200px;
+    background: #d0d0d0;
+    min-height: 1000px;
+}
+.card {
+    background-color: #fff;
+}
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Patient Visit Details</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+
+<div class="row clearfix">
+  <md-content layout-padding>
+    <div class="col-lg-4 col-md-4 col-sm-7 col-xs-13">
+      <md-input-container>
+        <label>Patient ID </label>
+        <input  type="text" name="patid" id="patid" ng-model ="patient.patientid" >
+        <div ng-messages="patientForm.patid.$error">
+          <div ng-message="required">Patient Name is required.</div>
+          <div ng-message="pattern">Please Enter letters only.</div>
+          <div ng-message="minlength">Patient Name is too short..</div>
+             <div ng-message="maxlength">Patient Name is too long.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-7 col-xs-13">
+      <md-input-container>
+        <label>Patient Name </label>
+        <input  type="text" name="patname" id="patname" ng-model ="patient.patientName" ng-pattern="/^(\D)+$/">
+        <div ng-messages="patientForm.patname.$error">
+          <div ng-message="required">Patient Name is required.</div>
+          <div ng-message="pattern">Please Enter letters only.</div>
+          <div ng-message="minlength">Patient Name is too short..</div>
+             <div ng-message="maxlength">Patient Name is too long.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+         <md-button class="btn btn-primary" ng-click="">SEARCH</md-button>
+    </div>
+</md-content>
+</div>
+</div>
+<hr>
+<div class="body">
+
+
+
+<div class="row clearfix">
+<md-content layout-padding>
+
+    <div class="col-xs-4">
+      <md-input-container>
+        <label>Patient Name </label>
+        <input  type="text" name="patname" id="patname" ng-model ="patient.patientName" ng-pattern="/^(\D)+$/" readonly="true">
+        <div ng-messages="patientForm.patname.$error">
+          <div ng-message="required">Patient Name is required.</div>
+          <div ng-message="pattern">Please Enter letters only.</div>
+          <div ng-message="minlength">Patient Name is too short..</div>
+             <div ng-message="maxlength">Patient Name is too long.</div>
+        </div>
+      </md-input-container>
+    </div>
+
+    <div class="col-xs-4">
+     <md-input-container>
+        <label>Gender </label>
+          <input type="text" name="gender" id="gender" ng-model ="patient.gender"  readonly="true">
+
+       <div ng-messages="patientForm.gender.$error">
+         <div ng-message="required">Gender is required.</div>
+       </div>
+     </md-input-container>
+   </div>
+       <div class="col-xs-4">
+      <md-input-container>
+        <label>Age </label>
+        <input type="text" name="age" id="age" ng-model ="patient.age"  readonly="true">
+        <div ng-messages="patientForm.age.$error">
+          <div ng-message="required">Age is required.</div>
+          <div ng-message="pattern">Please Enter numbers only.</div>
+
+        </div>
+      </md-input-container>
+    </div>
+
+
+  <div class="col-xs-4">
+<md-input-container>
+<label>Patient Description </label>
+<textarea name="Reason" rows="6" cols="55" ng-model="patient.patientdescription" readonly="true"></textarea><br><br>
+
+</md-input-container>
+</div>
+
+
+</md-content>
+</div>
+</div>
+<hr>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+          <div class="header">
+              <h2>Add New Patient Visit Details</h2>
+          </div>
+             <hr>
+          <div class="body">
+
+
+            <form name="visitForm" ng-app="tatluApp" ng-controller="PatientvisitController" ng-submit="addVisit()" novalidate>
+
+            <div class="row">
+
+                <div class="col-xs-4">
+               <md-input-container>
+                <label>Type of Doctor to Visit</label>
+                 <md-select  type="text" name="speciality" id="speciality" ng-model ="visit.speciality" placeholder="Type of Doctor to Visit"  ng-required="true">
+                   <md-option ng-repeat="o in speciality" ng-value="o">{{o}}</md-option>
+                 </md-select>
+                 <div ng-messages="visitForm.speciality.$error">
+                   <div ng-message="required">Type of Doctor is required.</div>
+                 </div>
+               </md-input-container>
+             </div>
+
+
+
+
+            		 <div class="col-xs-4">
+                           <md-input-container>
+                             <label>Doctor Name</label>
+                             <input type="text" name="visitdoc"  ng-model="visit.Docotorname" ng-required="true">
+                             <div ng-messages="visitForm.visitdoc.$error">
+                               <div ng-message="required">Doctor Name is required.</div>
+
+                             </div>
+                           </md-input-container>
+                         </div>
+
+
+
+            </div>
+            <div class="row">
+
+                         <div class="col-xs-5">
+                  <md-input-container>
+            			<label>Reason to Visit</label>
+            			<textarea name="Reason" rows="6" cols="55" ng-model="visit.Reason" required></textarea><br><br>
+                     <div ng-messages="visitForm.Reason.$error">
+                      <div ng-message="required">Enter a Reason.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+              </div>
+<div style="text-align:right">
+                <md-button type="submit" class="btn btn-primary" >Save Visit</md-button>
+</div>
+<br>
+            </form>
+
+
+          </div>
+
+      </div>
+  </div>
+
+
+
+</div>
+    </md-content>
+</div>

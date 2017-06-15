@@ -1,0 +1,177 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+.label {
+  color: rgb(63,81,181);
+}
+
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Add Patients</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+
+
+<form name="patientForm" class="container-fluid" ng-submit="submit()">
+        <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>First Name  </label>
+              <input  type="text" name="patname" id="patname" ng-model ="patient.firstName" ng-pattern="/^(\D)+$/" ng-required="true">
+              <div ng-messages="patientForm.patname.$error">
+                <div ng-message="required">Patient Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Patient Name is too short..</div>
+                   <div ng-message="maxlength">Patient Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label>Last Name </label>
+                <input  type="text" name="patname" id="patname" ng-model ="patient.lastName" ng-pattern="/^(\D)+$/" ng-required="true">
+                <div ng-messages="patientForm.patname.$error">
+                  <div ng-message="required">Patient Name is required.</div>
+                  <div ng-message="pattern">Please Enter letters only.</div>
+                  <div ng-message="minlength">Patient Name is too short..</div>
+                     <div ng-message="maxlength">Patient Name is too long.</div>
+                </div>
+              </md-input-container>
+            </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label class="id">DOB </label>
+              <input name="dob" ng-model ="patient.dob" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+              <div ng-messages="patientForm.dob.$error">
+                <div ng-message="required">DOB is required.</div>
+              </div>
+            </md-input-container>
+          </div></div>
+
+          <div class="row">
+
+             <div class="col-xs-4">
+            <md-input-container>
+              <label>Age </label>
+              <input type="text" name="age" id="age" ng-model ="patient.age"  ng-required="true">
+              <div ng-messages="patientForm.age.$error">
+                <div ng-message="required">Age is required.</div>
+                <div ng-message="pattern">Please Enter numbers only.</div>
+
+              </div>
+            </md-input-container>
+          </div>
+
+           <div class="col-xs-4">
+            <md-input-container>
+               <label>Gender </label>
+              <md-select name="gender" id="gender" placeholder="Gender" ng-change="genId()" ng-model="patient.gender" ng-required="true">
+                <md-option ng-repeat="o in gender" ng-value="o">{{o}}</md-option>
+              </md-select>
+              <div ng-messages="patientForm.gender.$error">
+                <div ng-message="required">Gender is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Mobile No </label>
+              <input type="text" name="mobile" id="mobile" ng-model ="patient.mobile"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+              <div ng-messages="patientForm.mobile.$error">
+                <div ng-message="required">Mobile No is required.</div>
+                <div ng-message="pattern">Please Enter Valid Mobile No.</div>
+                <div ng-message="minlength">Mobile No is too short..</div>
+                   <div ng-message="maxlength">Mobile No is too long.</div>
+              </div>
+            </md-input-container>
+          </div></div>
+
+          <div class="row">
+
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Email </label>
+              <input type="text" name="email" id="email" ng-model ="patient.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+              <div ng-messages="patientForm.email.$error">
+                <div ng-message="required">Email is required.</div>
+                  <div ng-message="pattern">Please Enter Valid Email.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Profile Image</label>&nbsp;
+              <input type="file" name="profileimage" id="profileimage"  ng-model ="patient.profileimage" file-model ="myFile"  accept=".jpg,.jpeg,.png">
+              <div ng-messages="patientForm.profileimage.$error">
+                <div ng-message="required">profile Image is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>User Name</label>
+              <input type="text" name="username" id="username" ng-model ="patient.userName" ng-minlength="3" ng-maxlength="8" ng-required="true">
+              <div ng-messages="patientForm.username.$error">
+                <div ng-message="required">Username is required.</div>
+                <div ng-message="minlength">Username is too short..</div>
+                   <div ng-message="maxlength">Username is too long.</div>
+              </div>
+            </md-input-container>
+          </div></div></div>
+
+          <div class="row">
+
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Password</label>
+              <input type="password" name="Password" id="Password" ng-model ="patient.Password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-required="true">
+              <div ng-messages="patientForm.Password.$error">
+                <div ng-message="required">Password is required.</div>
+                <div ng-message="pattern">Password should be atleast 8 characters long and should contain one number,one character and one special character
+      </div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Confirm Password</label>
+              <input type="password" name="cPassword" id="cPassword" ng-model ="patient.cPassword" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-required="true">
+              <div ng-messages="patientForm.cPassword.$error">
+                <div ng-message="required">Confirm Password is required.</div>
+                <div ng-message="pattern">Password should be atleast 8 characters long and should contain one number,one character and one special character
+      </div>
+              </div>
+            </md-input-container>  </div>
+            <div class="col-xs-4">
+            <md-input-container>
+              <label>Your ID</label>
+              <input type="text" name="id" id="id" ng-readonly="showid" value={{patient.id}}>
+
+            </md-input-container>
+          </div>
+
+         </div>
+        <md-button type="button" ng-click="resetpatient(patient)">RESET</md-button>
+        <md-button class="md-primary" ng-disabled="patientForm.$invalid" ng-click="addpatient()">SUBMIT</md-button>
+      </form>
+
+
+    </div>
+    </div>
+        </md-content>
+    </div>

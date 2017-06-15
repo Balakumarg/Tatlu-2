@@ -1,0 +1,41 @@
+<div>
+  <h4>Edit Global settings</h4>
+  <br>
+
+<div layout-gt-sm="column">
+  <div class="col-xs-4">
+
+                Session Timeout seconds &nbsp; <input type="number" name="points" min="5000" max="7200" step="50" value="5000" ng-model= "global3.timeout">
+             </div>
+             <br>
+             <div class="col-xs-4">
+
+                            Require strong password  &nbsp; <md-checkbox type="checkbox"  value="true" ng-model= "global3.strongpswd">
+                        </div>
+                        <br>
+
+                        <div class="col-xs-4">
+                         Minimum char  <md-select placeholder="minimum char" ng-model= "global3.minimumchar" >
+                       <md-option ng-repeat="o in minichar" ng-value="o">{{o}}</md-option>
+                       </md-select>
+                       </div>
+
+                       <div class="col-xs-4">
+                        Maximum char  <md-select placeholder="maximum char" ng-model= "global3.maximumchar" >
+                      <md-option ng-repeat="o in maxichar" ng-value="o">{{o}}</md-option>
+                      </md-select>
+                      </div>
+
+
+  <div class="col-xs-4">
+
+                   Case sensitive password &nbsp; <md-checkbox type="checkbox"  value="true" ng-model= "global3.casesensitive">
+             </div>
+
+</div>
+             <br>
+  <md-button class="md-primary" ng-click="addGlobalSetting3()">Submit</md-button>
+
+
+
+</div>

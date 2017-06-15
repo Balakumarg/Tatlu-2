@@ -1,0 +1,487 @@
+
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Add Patient Details</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+
+<form name="patientdemoForm" ng-app="tatluApp" ng-controller="PatientdemoController" class="container-fluid" ng-submit="submit()">
+
+
+
+        <div class="row">
+
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>First Name </label>
+              <input type="text" name="firstname" id="firstname" ng-model ="patientdemo.firstName" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.firstname.$error">
+                <div ng-message="required">First Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">First Name is too short..</div>
+                   <div ng-message="maxlength">First Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Last Name </label>
+              <input type="text" name="lastname" id="lastname" ng-model ="patientdemo.lastName" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15"  ng-required="true">
+              <div ng-messages="patientdemoForm.lastname.$error">
+                <div ng-message="required">Last Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Last Name is too short..</div>
+                   <div ng-message="maxlength">Last Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>DOB </label>
+              <input name="dob" ng-model ="patientdemo.dob" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+              <div ng-messages="patientdemoForm.dob.$error">
+                <div ng-message="required">DOB is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+        </div>
+        <div class="row">
+           <div class="col-xs-4">
+            <md-input-container>
+               <label>Gender </label>
+              <md-select name="gender" id="gender" placeholder="Gender" ng-model="patientdemo.gender" ng-required="true">
+                <md-option ng-repeat="o in gender" ng-value="o">{{o}}</md-option>
+              </md-select>
+              <div ng-messages="patientdemoForm.gender.$error">
+                <div ng-message="required">Gender is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Aadhaar Number </label>
+              <input type="text" name="aadhaar" id="aadhaar" ng-model ="patientdemo.aadhaarno"  maxlength="12" ng-pattern ="/^(\d)+$/" ng-minlength="12" ng-maxlength="12" ng-required="true">
+              <div ng-messages="patientdemoForm.aadhaar.$error">
+                <div ng-message="required">Aadhaar Number is required.</div>
+                <div ng-message="pattern">Please Enter Valid Aadhaar Number.</div>
+                <div ng-message="minlength">Aadhaar Number is too short..</div>
+                   <div ng-message="maxlength">Aadhaar Number is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>License Number </label>
+              <input type="text" name="license" id="license" ng-model ="patientdemo.licenseno"  maxlength="15" ng-pattern ="/^(\d)+$/" ng-minlength="15" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.license.$error">
+                <div ng-message="required">License Number is required.</div>
+                <div ng-message="pattern">Please Enter Valid License Number.</div>
+                <div ng-message="minlength">License Number is too short..</div>
+                   <div ng-message="maxlength">License Number is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Address </label>
+              <input type="text" name="address" id="address" ng-model ="patientdemo.address" maxlength="30" ng-required="true">
+              <div ng-messages="patientdemodForm.address.$error">
+                <div ng-message="required">Address is required.</div>
+
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>City </label>
+              <input type="text" name="city" id="city" ng-model ="patientdemo.city"  ng-required="true">
+              <div ng-messages="patientdemodForm.city.$error">
+                <div ng-message="required">City is required.</div>
+
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>State </label>
+              <input type="text" name="state" id="state" ng-model ="patientdemo.state"  ng-required="true">
+              <div ng-messages="patientdemodForm.state.$error">
+                <div ng-message="required">State is required.</div>
+
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Pincode </label>
+              <input type="text" name="pincode" id="pincode" ng-model ="patientdemo.pincode"  maxlength="6" ng-pattern ="/^(\d)+$/" ng-minlength="6" ng-maxlength="6" ng-required="true">
+              <div ng-messages="patientdemoForm.pincode.$error">
+                <div ng-message="required">Pincode is required.</div>
+                <div ng-message="pattern">Please Enter Valid Pincode.</div>
+                <div ng-message="minlength">Pincode is too short..</div>
+                   <div ng-message="maxlength">Pincode is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <hr>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Father Name </label>
+              <input type="text" name="fathername" id="fathername" ng-model ="patientdemo.fathername" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.fathername.$error">
+                <div ng-message="required">Father Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Father Name is too short..</div>
+                   <div ng-message="maxlength">Father Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Mother Name </label>
+              <input type="text" name="mothername" id="mothername" ng-model ="patientdemo.mothername" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15"  ng-required="true">
+              <div ng-messages="patientdemoForm.mothername.$error">
+                <div ng-message="required">Mother Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Mother Name is too short..</div>
+                   <div ng-message="maxlength">Mother Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Spouse Name </label>
+              <input type="text" name="spousename" id="spousename" ng-model ="patientdemo.spousename" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.spousename.$error">
+                <div ng-message="required">Spouse Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Spouse Name is too short..</div>
+                   <div ng-message="maxlength">Spouse Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Guardian's Name </label>
+              <input type="text" name="guardiansname" id="guardiansname" ng-model ="patientdemo.guardiansname" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15"  ng-required="true">
+              <div ng-messages="patientdemoForm.guardiansname.$error">
+                <div ng-message="required">Guardian's Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Guardian's Name is too short..</div>
+                   <div ng-message="maxlength">Guardian's Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Home Phone</label>
+              <input type="text" name="homeno" id="homeno" ng-model ="patientdemo.homeno"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+              <div ng-messages="patientdemoForm.homeno.$error">
+                <div ng-message="required">Home Phone Number is required.</div>
+                <div ng-message="pattern">Please Enter Valid Home Phone Number.</div>
+                <div ng-message="minlength">Home Phone Number is too short..</div>
+                   <div ng-message="maxlength">Home Phone Number is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Cell Phone </label>
+              <input type="text" name="cellno" id="cellno" ng-model ="patientdemo.cellno"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+              <div ng-messages="patientdemoForm.cellno.$error">
+                <div ng-message="required">Cell Phone Number is required.</div>
+                <div ng-message="pattern">Please Enter Valid Cell Phone Number.</div>
+                <div ng-message="minlength">Cell Phone Number is too short..</div>
+                   <div ng-message="maxlength">Cell Phone Number is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Work Phone </label>
+              <input type="text" name="workno" id="workno" ng-model ="patientdemo.workno"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+              <div ng-messages="patientdemoForm.workno.$error">
+                <div ng-message="required">Work Phone Number is required.</div>
+                <div ng-message="pattern">Please Enter Valid Work Phone Number.</div>
+                <div ng-message="minlength">Work Phone Number is too short..</div>
+                   <div ng-message="maxlength">Work Phone Number is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Email </label>
+              <input type="text" name="email" id="email" ng-model ="patientdemo.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true">
+              <div ng-messages="patientdemodForm.email.$error">
+                <div ng-message="required">Email is required.</div>
+                  <div ng-message="pattern">Please Enter Valid Email.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+    <hr>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Emergency Contact Name</label>
+              <input type="text" name="emgname" id="emgname" ng-model ="patientdemo.emgname" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="8" ng-required="true">
+              <div ng-messages="patientdemoForm.emgname.$error">
+                <div ng-message="required">Emergency Contact Name is required.</div>
+                  <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Emergency Contact Name is too short..</div>
+                   <div ng-message="maxlength">Emergency Contact Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Emergency Contact No </label>
+              <input type="text" name="emgphoneno" id="emgphoneno" ng-model ="patientdemo.emgphoneno"  maxlength="10" ng-pattern ="/^(\d)+$/" ng-minlength="10" ng-maxlength="10" ng-required="true">
+              <div ng-messages="patientdemoForm.emgphoneno.$error">
+                <div ng-message="required">Emergency Contact No is required.</div>
+                <div ng-message="pattern">Please Enter Valid Emergency Contact No.</div>
+                <div ng-message="minlength">Emergency Contact No is too short..</div>
+                   <div ng-message="maxlength">Emergency Contact No is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+</div>
+    <hr>
+    <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Family Doctor Name </label>
+              <input type="text" name="familydocname" id="familydocname" ng-model ="patientdemo.familydocname" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.familydocname.$error">
+                <div ng-message="required">Family Doctor Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Family Doctor Name is too short..</div>
+                   <div ng-message="maxlength">Family Doctor Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Referring Doctor Name </label>
+              <input type="text" name="referdocname" id="referdocname" ng-model ="patientdemo.referdocname" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.referdocname.$error">
+                <div ng-message="required">Referring Doctor Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Referring Doctor Name is too short..</div>
+                   <div ng-message="maxlength">Referring Doctor Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Prefered Pharmacy</label>
+              <input type="text" name="prefphar" id="prefphar" ng-model ="patientdemo.prefphar" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.prefphar.$error">
+                <div ng-message="required">Prefered Pharmacy Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Prefered Pharmacy Name is too short..</div>
+                   <div ng-message="maxlength">Prefered Pharmacy Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+            <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Prefered Lab</label>
+              <input type="text" name="preflab" id="preflab" ng-model ="patientdemo.preflab" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+              <div ng-messages="patientdemoForm.preflab.$error">
+                <div ng-message="required">Prefered Lab Name is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Prefered Lab Name is too short..</div>
+                   <div ng-message="maxlength">Prefered Lab Name is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-xs-4">
+           Allow SMS &nbsp; <md-checkbox type="checkbox"  value="true" ng-model= "patientdemo.allowsms">
+                     </div>
+               <div class="col-xs-4">
+                      Allow Email &nbsp; <md-checkbox type="checkbox"  value="true" ng-model= "patientdemo.allowemail">
+                                </div>
+          </div>
+              <hr>
+              <div class="row">
+                      <div class="col-xs-4">
+                          <md-input-container>
+                            <label>Occupation </label>
+                              <input type="text" name="occupation" id="occupation" ng-model ="patientdemo.occupation" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+                                  <div ng-messages="patientdemoForm.occupation.$error">
+                                  <div ng-message="required">Occupation is required.</div>
+                                  <div ng-message="pattern">Please Enter letters only.</div>
+                                  <div ng-message="minlength">Occupation is too short..</div>
+                                 <div ng-message="maxlength">Occupation is too long.</div>
+                                    </div>
+                                  </md-input-container>
+                                </div>
+                        <div class="col-xs-4">
+                            <md-input-container>
+                              <label>Employer Name </label>
+                              <input type="text" name="employername" id="employername" ng-model ="patientdemo.employername" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+                              <div ng-messages="patientdemoForm.employername.$error">
+                              <div ng-message="required">Employer Name is required.</div>
+                              <div ng-message="pattern">Please Enter letters only.</div>
+                              <div ng-message="minlength">Employer Name is too short..</div>
+                               <div ng-message="maxlength">Employer Name is too long.</div>
+                            </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                          <md-input-container>
+                            <label>Type Of Industry </label>
+                            <input type="text" name="typeindustry" id="typeindustry" ng-model ="patientdemo.typeindustry" ng-pattern="/^(\D)+$/" ng-minlength="3" ng-maxlength="15" ng-required="true">
+                            <div ng-messages="patientdemoForm.typeindustry.$error">
+                            <div ng-message="required">Type Of Industry is required.</div>
+                            <div ng-message="pattern">Please Enter letters only.</div>
+                            <div ng-message="minlength">Type Of Industry is too short..</div>
+                             <div ng-message="maxlength">Type Of Industry is too long.</div>
+                          </div>
+                      </md-input-container>
+                      </div>
+                    </div>
+                        <div class="row">
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Employer Address </label>
+                          <input type="text" name="employeraddress" id="employeraddress" ng-model ="patientdemo.employeraddress" maxlength="30" ng-required="true">
+                          <div ng-messages="patientdemodForm.employeraddress.$error">
+                            <div ng-message="required">Employer Address is required.</div>
+
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Employer City </label>
+                          <input type="text" name="empcity" id="empcity" ng-model ="patientdemo.employercity"  ng-required="true">
+                          <div ng-messages="patientdemodForm.empcity.$error">
+                            <div ng-message="required">Employer City is required.</div>
+
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Employer State </label>
+                          <input type="text" name="empstate" id="empstate" ng-model ="patientdemo.employerstate"  ng-required="true">
+                          <div ng-messages="patientdemodForm.empstate.$error">
+                            <div ng-message="required">Employer State is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                        <hr>
+                        <div class="row">
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Language </label>
+                          <input type="text" name="language" id="language" ng-model ="patientdemo.language"  ng-required="true">
+                          <div ng-messages="patientdemodForm.language.$error">
+                            <div ng-message="required">Language is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Religion </label>
+                          <input type="text" name="religion" id="religion" ng-model ="patientdemo.religion"  ng-required="true">
+                          <div ng-messages="patientdemodForm.religion.$error">
+                            <div ng-message="required">Religion is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Monthly Income </label>
+                          <input type="text" name="monthlyincome" id="monthlyincome" ng-model ="patientdemo.monthlyincome"  ng-required="true">
+                          <div ng-messages="patientdemodForm.monthlyincome.$error">
+                            <div ng-message="required">Montly Income is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                        <div class="row">
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Family Size </label>
+                          <input type="number" name="famsize" id="famsize" ng-model ="patientdemo.familysize"  ng-required="true">
+                          <div ng-messages="patientdemodForm.famsize.$error">
+                            <div ng-message="required">Family Size is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Refferral Source </label>
+                          <input type="text" name="refsource" id="refsource" ng-model ="patientdemo.referralsource"  ng-required="true">
+                          <div ng-messages="patientdemodForm.refsource.$error">
+                            <div ng-message="required">Refferral Source is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                    </div>
+                          <hr>
+                        <div class="row">
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Insurance Plan Name </label>
+                          <input type="text" name="insplanname" id="insplanname" ng-model ="patientdemo.insuranceplanname"  ng-required="true">
+                          <div ng-messages="patientdemodForm.insplanname.$error">
+                            <div ng-message="required">Insurance Plan Name is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+
+                      <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Policy Number </label>
+                          <input type="text" name="policyno" id="policyno" ng-model ="patientdemo.policynumber"  ng-required="true">
+                          <div ng-messages="patientdemodForm.policyno.$error">
+                            <div ng-message="required">Policy Number is required.</div>
+                          </div>
+                        </md-input-container>
+                      </div>
+                  </div>
+
+
+
+        </div>
+        <md-button type="button" ng-click="resetpatientdemo(patientdemo)">RESET</md-button>
+        <md-button class="md-primary" ng-disabled="patientdemoForm.$invalid" ng-click="addpatientdemo()">SUBMIT</md-button>
+      </form>
+    </div>
+    </div>
+        </md-content>
+    </div>

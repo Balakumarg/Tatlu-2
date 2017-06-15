@@ -1,0 +1,32 @@
+<div>
+  <h4>Add New Rules Configuration:-</h4>
+  <br>
+
+<h5><u>Summary</u></h5>
+
+   Title  <input type="text" ng-model= "rules.title"><br><br>
+   Type   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" ng-model= "rules.activealert">Active Alert &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="checkbox" ng-model= "rules.passivealert">Passive Alert &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" ng-model= "rules.patientremainder">Patient Remainder
+   <hr>
+
+
+<h5><u>Remainder Interval</u></h5>
+   Type &nbsp;&nbsp;  Detail <br>
+   *Clinical &nbsp;&nbsp; Warning &nbsp;&nbsp;<input type="text" ng-model= "rules.cwarning" > <input type="date" ng-model= "rules.cwarningdate"> <br><br>
+   Past Due &nbsp;&nbsp;<input type="text" ng-model= "rules.cwarningpast"> <input type="date" ng-model= "rules.cwarningpastdate" > <br><br>
+<br>
+<hr>
+
+    *Patient &nbsp;&nbsp; Warning &nbsp;&nbsp;<input type="text" ng-model="rules.pwarning"> <input type="date" ng-model="rules.pwarningdate"> <br><br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Past Due &nbsp;&nbsp;<input type="text" ng-model="rules.pwarningpast"> <input type="date" ng-model="rules.pwarningpastdate"> <br><br>
+
+
+
+
+
+
+    <button ng-click="addrules()">Save</button>
+
+
+
+</div>

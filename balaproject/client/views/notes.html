@@ -1,0 +1,88 @@
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Notes</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">View Notes</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+
+<form name="notesForm" ng-submit="addNotes()" novalidate>
+
+		<!-- NAME -->
+		<div  ng-class="{'has-error' : notesForm.name.$invalid && !notesForm.name.$pristine }">
+				<label>Heading</label>
+				<input type="text" name="name"  ng-model="notes.heading" required>
+				<p ng-show="notesForm.name.$invalid && !notesForm.name.$pristine" class="help-block">Headingis required.</p>
+		</div>
+
+
+
+		<div class="form-group" ng-class="{ 'has-error' : notesForm.Reason.$invalid && !notesForm.Reason.$pristine }">
+			<label>Note Description</label>
+			<textarea name="Reason" rows="6" cols="55" ng-model="notes.description" required></textarea><br><br>
+
+				<p ng-show="notesForm.Reason.$invalid && !notesForm.Reason.$pristine" class="help-block">Enter a description.</p>
+		</div>
+
+
+		<!-- <label> Patient Id</label>
+		<input type="text" ng-model="visit.patientid" required><br>
+		<label> Visiting doctor</label>
+		<input type="email" ng-model="visit.VisitingDocotor" required><br>
+		<div>
+		<label> Visit date</label>
+
+		<ng-datepicker ng-model="visit.visitdate" locale="en"  format="DD.MM.YYYY" view-format="DD/MM/YYYY" required>
+		</ng-datepicker>
+
+
+		</div><br>
+
+		<label> Reason to visit</label>
+		<textarea rows="6" cols="55" ng-model="visit.Raeson" required></textarea><br><br>
+
+		<button type="submit">Save Visit</button> -->
+
+
+		<button type="submit" class="btn btn-primary" ng-disabled="notesForm.$invalid">Save Notes</button>
+
+</form>
+
+
+       </div>
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+<div>
+  <table class="table">
+      <thead>
+        <tr>
+					<th>S.No</th>
+          <th>Heading</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Time</th>
+
+        </tr>
+      </thead>
+      <tbody  ng-repeat="v in notesList">
+        <tr>
+					<td>{{$index + 1}}</td>
+          <td>{{v.heading}}</td>
+          <td>{{v.description}}</td>
+          <td>{{v.date}}</td>
+          <td>{{v.time}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+       </div>
+
+     </div>
+    </div>
+  </div></div></div>

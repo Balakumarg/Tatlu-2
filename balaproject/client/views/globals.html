@@ -1,0 +1,51 @@
+<div>
+  <h4>Edit Global settings</h4>
+  <br>
+  <div layout-gt-sm="column">
+
+ <div class="col-xs-4">
+               Main Top Pane screen  <md-select placeholder="Calender screen" ng-model= "globalpanescreen" >
+                <md-option ng-repeat="o in calender" ng-value="o">{{o}}</md-option>
+               </md-select>
+             </div>
+
+  <div class="col-xs-4">
+                Layout style  <md-select placeholder="Navigation uses sliding menu" ng-model= "globallayout">
+                 <md-option ng-repeat="o in layout" ng-value="o">{{o}}</md-option>
+                </md-select>
+              </div>
+
+              <div class="col-xs-4">
+                            Theme <md-select placeholder="style_css" ng-model= "globaltheme">
+                             <md-option ng-repeat="o in theme" ng-value="o">{{o}}</md-option>
+                            </md-select>
+                          </div>
+
+<div class="col-xs-4">
+               Navigation Area width &nbsp;  <input type="number" name="points" min="100" max="250" step="10" value="150">
+           </div>
+<br>
+           <div class="col-xs-4">
+                          Application Title &nbsp; <input type="text"  placeholder = "Tatlu">
+                      </div>
+                      <br>
+                      <div class="col-xs-4">
+                                  New Patient Form <md-select placeholder="All demographics field with search" ng-model= "globalpatientform" >
+                                     <md-option ng-repeat="o in patform" ng-value="o">{{o}}</md-option>
+                                    </md-select>
+                                  </div>
+
+          <div class="col-xs-4">
+  Enable left menu &nbsp;  <md-checkbox type="checkbox"  value="true">
+</div>
+<br>
+    <div class="col-xs-4">
+  Navigation area visit Form &nbsp; <md-checkbox type="checkbox"  value="true">
+</div>
+</div>
+<br>
+    <md-button class="md-primary" ng-click="addGlobalSetting()">Save & Next</md-button>
+
+
+
+</div>

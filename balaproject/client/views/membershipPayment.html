@@ -1,0 +1,42 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Mobile No</th>
+      <th>RelasionShip</th>
+      <th>Family Lead</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="f in famillymemberlist">
+      <td>{{index+1}}</td>
+
+      <td>{{f.id}}</td>
+      <td>{{f.patientname}}</td>
+      <td>{{f.age}}</td>
+      <td>{{f.address}}</td>
+      <td>{{f.mobile}}</td>
+      <td>{{f.relashionship}}</td>
+<td>
+  <input type="radio" name="userdetails" value="{{f.id}}" ng-model="$parent.selectedPerson" /></td>
+
+
+    </tr>
+    <td>
+    <input type="button" id="btnClick" value="Submit" ng-click="checkoptions()" /></td>
+<!-- <button ng-click="checkoptions(arrlist)">Confirm</botton> -->
+  </tbody>
+</table>
+
+
+<!-- <div ng-repeat="user in arrlist">
+</div><br />
+<br /><br /> -->
+<span style="color:Red">{{msg}}</span>
+<!-- </div></div> -->

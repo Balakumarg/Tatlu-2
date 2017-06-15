@@ -1,0 +1,43 @@
+<div ng-init="myVar='non-member'">
+
+<input type="radio" ng-model="myVar" value="non-member">Non-Member
+<input type="radio" ng-model="myVar" value="individual">individual-Membership
+<input type="radio" ng-model="myVar" value="family">Family-Membership
+
+</div>
+
+<br>
+<br>
+<div ng-switch="myVar" ng-switch on=>
+  <div ng-switch-when="non-member" checked>
+  <div>
+
+Membership-Type:Non-Member
+</div>
+<br><br>
+
+<button type="submit" ng-click="SaveNon()">Save</button>
+</div>
+
+<div ng-switch-when="individual">
+
+
+
+<button type="submit">Save</button>
+</div>
+
+
+<div ng-switch-when="family">
+
+<form ng-submit="submitTable()" ng-model='table.fields[$index]'  ng-repeat="field in table.fields track by $index">
+  <label>Enter Family member name</label>
+  <input type='text' ng-model='table.title' placeholder='Title:'>
+  <label>Relasionship</label>
+  <input type='text'  placeholder='Field:'>
+  <div>
+    <button type='submit'>Save</button>
+    <button ng-click="addFormField()">+</button>
+  </div>
+</form>
+</div>
+</div>

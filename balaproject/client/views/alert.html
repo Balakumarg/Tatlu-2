@@ -1,0 +1,35 @@
+<body>
+
+<div class="container">
+  <h4>Rules alert Management</h4><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Active alert</th>
+        <th>Passive alert</th>
+        <th>Patient Remainder</th>
+        <th>Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+
+
+      <tr ng-repeat ="a in alertlist">
+        <td>{{a.title}}</td>
+        <td><input type="checkbox" ng-model ="a.activealert"></td>
+        <td><input type="checkbox" ng-model ="a.passivealert"></td>
+        <td><input type="checkbox" ng-model ="a.patientremainder"></td>
+        <td><button type="button" ng-click = "addalert(a)">save</button><button type="button" ng-click = "delalert(a)">delete</button></td>
+        
+
+      </tr>
+
+
+    </tbody>
+
+  </table>
+
+</div>

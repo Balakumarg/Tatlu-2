@@ -1,0 +1,108 @@
+
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Procedure</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">View Procedures</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+
+ <form name="proForm" ng-app="tatluApp" ng-controller="ProcedureController" ng-submit="SaveProcedure()" novalidate>
+
+           <div layout-gt-sm="column">
+         		 <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Type Of Procedure</label>
+                          <input type="text" name="type"  ng-model="pro.type" ng-required="true">
+                          <div ng-messages="proForm.type.$error">
+                            <div ng-message="required"> Type Of Procedure is required.</div>
+
+                          </div>
+                        </md-input-container>
+                      </div>
+
+
+         		 <div class="col-xs-4">
+                        <md-input-container>
+                          <label>Sub Type</label>
+                          <input type="text" name="subtype"  ng-model="pro.subType" required>
+                          <div ng-messages="proForm.subtype.$error">
+                            <div ng-message="required">Sub Type is required.</div>
+
+                          </div>
+                        </md-input-container>
+                      </div>
+
+         <div class="col-xs-5">
+          <md-input-container>
+    			<label>Standared Instruction </label>
+    			<textarea name="instruction" rows="6" cols="55" ng-model="pro.standaredInstruction" required></textarea><br><br>
+             <div ng-messages="proForm.instruction.$error">
+              <div ng-message="required">Enter a Standared Instruction.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+ </div>
+     <md-button class="md-primary" type="button" ng-disabled="proForm.$invalid"  ng-click="SaveProcedure()">Add Procedure</md-button>
+
+   </form>
+
+       </div>
+
+
+
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+
+Procedure Id: <input type="text" ng-model="idSearch" > ProcedureType<select ng-model="typeSearch">
+  <option value="" disabled selected>Select your option</option>
+
+  <option ng-repeat="m in procedureList">{{m.type}}</option></select>
+
+<div>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Procedure ID</th>
+          <th>Type Of Procedure</th>
+          <th>Sub Type</th>
+          <th>Standarted Instruction</th>
+          <th>Actions</th>
+
+
+        </tr>
+      </thead>
+      <tbody  ng-repeat="m in procedureList | filter:idSearch |filter:typeSearch ">
+        <tr>
+          <td>{{m.id}}</td>
+          <td>{{m.type}}</td>
+          <td>{{m.subType}}</td>
+          <td>{{m.standaredInstruction}}</td>
+<td>
+<button type="button">Edit</button>
+<button type="button">Delete</button>
+</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+
+
+
+
+
+
+
+
+       </div>
+
+     </div>
+    </div>
+  </div></div></div>

@@ -1,0 +1,64 @@
+<div >
+
+<img src="images/home3.jpg" alt="home" style="width: 118%;margin-left: -18%;margin-top: -20px;  height: 679px;" >
+
+<div>
+
+  <!-- <input type="text" list="Speciality" placeholder="select Speciality">
+
+    <datalist id="Speciality">
+      <option ng-repeat="d in doctorlist" value="{{d.email}}">
+    </datalist> -->
+    <div class="row" style="margin-top: -35%;">
+      <div class="col-sm-1">
+</div>
+<div class="col-sm-2">
+    <autocomplete  options="FacilityList"
+						place-holder="Select City"
+						on-select="citySelect"
+						display-property="City"
+						input-class="form-control"
+						clear-input="false"></autocomplete></div>
+
+                  <div class="col-sm-4">
+        <autocomplete  options="doctorlist"
+            						place-holder="Select Speciality"
+            						on-select="onSelect"
+            						display-property="Speciality"
+            						input-class="form-control"
+            						clear-input="false"></autocomplete>
+                      </div>
+
+                      <div class="col-sm-1">
+
+                      </div>
+<!-- <div>
+              <angucomplete-alt id="ex1" class="form-control"
+               style = "  margin-top: -39%;margin-left:16%;" class="form-group"
+                  placeholder="Select Speciality"
+                  selected-object="selectedObj"
+                  local-data="doctorlist"
+                  search-fields="email"
+                  title-field="email"
+                  minlength="0"
+                  inputclass="form-control form-control-small"
+                  match-class="highlight" />
+
+</div>
+<div>
+              <angucomplete-alt id="ex2" class="form-control"
+               style = "  margin-top: -39%;margin-left:25%;" class="form-group"
+                  placeholder="Select City"
+                  selected-object="selectedObj"
+                  local-data="doctorlist"
+                  search-fields="dob"
+                  title-field="dob"
+                  minlength="0"
+                  inputclass="form-control form-control-small"
+                  match-class="highlight" />
+
+</div> -->
+</div>
+
+</d
+iv>

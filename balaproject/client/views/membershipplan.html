@@ -1,0 +1,37 @@
+<div>
+
+  <label>Membership Type</label>
+  <select ng-model="plan.type">
+    <option>Family Membership</option>
+    <option>Individual care</option>
+
+  </select><br><br>
+
+  <label>Cost for members</label>
+  <input type="tetx" ng-model="plan.cost"><br><br>
+
+  <button type="button" ng-click="SavePlan()">Submit</button>
+<button ng-click="updatePlan()">Update</button>
+</div>
+
+<div>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Membership Type</th>
+          <th>Cost</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pl in PlanList">
+          <td>{{pl.type}}</td>
+          <td>{{pl.cost}}</td>
+          <td colspan="2"><button ng-click="editplan(pl)">edit</button>
+          <button ng-click="deletplan(pl)">Delete</button></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,107 @@
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Visit</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Visit Details</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+
+<form name="visitForm" ng-app="tatluApp" ng-controller="VisitController" ng-submit="addVisit()" novalidate>
+
+<div class="row">
+		<!-- NAME -->
+	 <div class="col-xs-4">
+               <md-input-container>
+                 <label>Patient Id</label>
+                 <input type="text" name="patid" id="patid" ng-model ="visit.patientid" ng-required="true">
+                 <div ng-messages="visitForm.patid.$error">
+                   <div ng-message="required">Patient Id is required.</div>
+
+                 </div>
+               </md-input-container>
+             </div>
+
+		<!-- USERNAME -->
+
+
+		 <div class="col-xs-4">
+               <md-input-container>
+                 <label>Visiting Doctor</label>
+                 <input type="text" name="visitdoc"  ng-model="visit.VisitingDocotor" ng-required="true">
+                 <div ng-messages="visitForm.visitdoc.$error">
+                   <div ng-message="required">Visiting doctor is required.</div>
+
+                 </div>
+               </md-input-container>
+             </div>
+		<!-- EMAIL -->
+
+    <div class="col-xs-4">
+               <md-input-container>
+                 <label>Visit Date</label>
+                 <input name="visitdate" ng-model="visit.visitdate" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+                 <div ng-messages="visitForm.visitdate.$error">
+                   <div ng-message="required">Visit Date is required.</div>
+                 </div>
+               </md-input-container>
+             </div>
+</div>
+<div class="row">
+
+             <div class="col-xs-5">
+      <md-input-container>
+			<label> Reason to visit</label>
+			<textarea name="Reason" rows="6" cols="55" ng-model="visit.Reason" required></textarea><br><br>
+         <div ng-messages="visitForm.Reason.$error">
+          <div ng-message="required">Enter a Reason.</div>
+        </div>
+      </md-input-container>
+    </div>
+  </div>
+
+    <md-button type="submit" class="md-primary" ng-disabled="visitForm.$invalid">Save Visit</md-button>
+
+</form>
+
+
+       </div>
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+<div>
+  <table class="table">
+      <thead>
+        <tr>
+					<th>S.No</th>
+          <th>Patient ID</th>
+          <th>Doctor</th>
+          <th>reason for visit</th>
+          <th>Visit Date</th>
+          <th>Visit Time</th>
+
+
+        </tr>
+      </thead>
+      <tbody  ng-repeat="v in visitList ">
+        <tr>
+					<td>{{$index + 1}}</td>
+          <td>{{v.patientid}}</td>
+          <td>{{v.VisitingDocotor}}</td>
+          <td>{{v.Reason}}</td>
+          <td>{{v.visitdate}}</td>
+					<td>{{v.visitTime}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+       </div>
+
+     </div>
+    </div>
+  </div></div></div>

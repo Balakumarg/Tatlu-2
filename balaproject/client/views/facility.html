@@ -1,0 +1,245 @@
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Facility</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">View facilities</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+<form name="facilityForm" ng-app="tatluApp" class="container-fluid" ng-submit="submit()">
+
+         <div class="row">
+           <div class="col-xs-4">
+             <md-input-container>
+                <label>Facility Type </label>
+               <md-select name="type"  placeholder="type" ng-model="facility.SelectedType" ng-required="true">
+                 <md-option ng-repeat="o in facilitytypes" ng-value="o">{{o}}</md-option>
+               </md-select>
+               <div ng-messages="facilityForm.type.$error">
+                 <div ng-message="required">Facility type is required.</div>
+               </div>
+             </md-input-container>
+</div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Name </label>
+               <input type="text" name="facilityname"  ng-model="facility.Name" ng-pattern="/^(\D)+$/" ng-required="true">
+               <div ng-messages="facilityForm.facilityname.$error">
+                 <div ng-message="required">facility Name is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Address </label>
+               <textarea rows="4" cols="50" type="text" name="address"  ng-model="facility.Address" ng-pattern="/^(\D)+$/" ng-required="true">
+</textarea>
+               <div ng-messages="facilityForm.address.$error">
+                 <div ng-message="required">facility address is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>City </label>
+               <input type="text" name="City"  ng-model="facility.City" ng-pattern="/^(\D)+$/" ng-required="true">
+               <div ng-messages="facilityForm.City.$error">
+                 <div ng-message="required">City Name is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>State </label>
+               <input type="text" name="City"  ng-model="facility.State" ng-pattern="/^(\D)+$/" ng-required="true">
+               <div ng-messages="facilityForm.City.$error">
+                 <div ng-message="required">State Name is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Country </label>
+               <input type="text" name="address"  ng-model="facility.Country" ng-pattern="/^(\D)+$/" ng-required="true">
+               <div ng-messages="facilityForm.address.$error">
+                 <div ng-message="required">Country name is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+
+           <div class="row">
+
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Website </label>
+               <input type="text" name="address" ng-model="facility.Website" ng-pattern="/^(\D)+$/" ng-required="true">
+               <div ng-messages="facilityForm.address.$error">
+                 <div ng-message="required">Website  is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Phone </label>
+               <input type="text" name="Phone" ng-model="facility.Phone" ng-required="true">
+               <div ng-messages="facilityForm.Phone.$error">
+                 <div ng-message="required">Phone Number is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+           <div class="col-xs-4">
+             <md-input-container>
+               <label>Zip Code </label>
+               <input type="text" name="ZipCode" ng-model="facility.ZipCode" ng-required="true">
+               <div ng-messages="facilityForm.ZipCode.$error">
+                 <div ng-message="required">ZipCode is required.</div>
+               </div>
+             </md-input-container>
+           </div>
+         </div>
+
+         <div class="row">
+
+         <div class="col-xs-4">
+           <md-input-container>
+             <label>Tax Id: </label>
+             <input type="text" name="TaxId" ng-model="facility.TaxId"  ng-required="true">
+             <div ng-messages="facilityForm.TaxId.$error">
+               <div ng-message="required">TaxId  is required.</div>
+             </div>
+           </md-input-container>
+         </div>
+         <div class="col-xs-4">
+           <md-input-container>
+             <label>Facility NPI </label>
+             <input type="text" name="FacilityNPI" ng-model="facility.FacilityNPI" ng-required="true">
+             <div ng-messages="facilityForm.FacilityNPI.$error">
+               <div ng-message="required">FacilityNPI is required.</div>
+             </div>
+           </md-input-container>
+         </div>
+         <div class="col-xs-4">
+           <md-input-container>
+             <label>Email </label>
+             <input type="Email" name="Email" ng-model="facility.Email" ng-required="true">
+             <div ng-messages="facilityForm.Email.$error">
+               <div ng-message="required">Email is required.</div>
+             </div>
+           </md-input-container>
+         </div>
+       </div>
+       <div class="row">
+
+       <!-- <div class="col-xs-4">
+<color-picker ng-model="myColor"></color-picker>
+         <md-input-container>
+           <label>Color </label>
+           <input type="color" name="Color" ng-model="facility.Color"  ng-required="true"></input>
+           <div ng-messages="facilityForm.Color.$error">
+             <div ng-message="required">Color  is required.</div>
+           </div>
+         </md-input-container>
+       </div> -->
+
+       <div class="col-xs-4">
+         <md-input-container>
+
+           <md-checkbox  name="Billing" ng-model="facility.BillingLoc" ng-required="true">Billing Location</md-checkbox>
+
+         </md-input-container>
+       </div>
+       <div class="col-xs-4">
+         <md-input-container>
+
+           <md-checkbox name="Service" ng-model="facility.ServiceLoc" ng-required="true">Service Location</md-checkbox>
+
+         </md-input-container>
+       </div>
+     </div>
+             <md-button type="button" ng-disabled="facilityForm.$invalid" ng-click="Savefacility()">SUBMIT</md-button>
+
+       </form></div></div>
+<!--
+				 <lable>Facility Type:</lable>
+ 				<select ng-model="facility.SelectedType">
+ 				<option value="" disabled selected>Select your option</option>
+ 					<option ng-repeat="t in arraylist" value="t">{{t}}</option>
+ 				</select>
+
+
+
+ 				<lable>Name:</lable> <input type="text" ></br>
+
+ 				<lable>Address:</lable>
+ 				<textarea rows="4" cols="50" ng-model="facility.Address"></textarea>
+ 				<lable>City:</lable> <input type="text" ></br>
+
+ 				<lable>State:</lable> <input type="text" ng-model="facility.State">
+
+ 				<lable>Country:</lable> <input type="text" ng-model="facility.Country"></br>
+
+ 				<lable>Website:</lable> <input type="text" ng-model="facility.Website">
+
+ 				<lable>Phone:</lable> <input type="phone" ng-model="facility.Phone"></br>
+
+ 				<label>Fax:</label><input type="text" >
+ 				<label>Zip code:</label><input type="text" ng-model="facility.ZipCode"></br>
+
+ 				<label>Tax Id:</label><input type="text" ng-model="facility.TaxId">
+
+ 				<label>Facility NPI:</label><input type="text" ng-model="facility.FacilityNPI">
+ 				<label>Email:</label><input type="email" ng-model="facility.Email"></br>
+
+ 				<label>Color:</label> <input type="color" ng-model="facility.Color"></br>
+ 				<label>Billing Location:</label> <input type="checkbox" ng-model="facility.BillingLoc">
+ 				<label>Service Locatio0n:</label> <input type="checkbox" ng-model="facility.ServiceLoc">
+
+
+ 				<button type="button" ng-click="Savefacility()">Save</button>
+       </div>
+
+ -->
+
+
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+<div>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+					<th>S.No</th>
+					<th>Facility Id</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody  ng-repeat="v in FacilityList | filter:idSearch |filter:typeSearch ">
+        <tr>
+					<td>{{$index + 1}}</td>
+          <td>{{v.id}}</td>
+          <td>{{v.Name}}</td>
+          <td>{{v.SelectedType}}</td>
+          <td>{{v.Address}} </br>
+{{v.City}}
+					</td>
+					<td>{{v.Phone}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+       </div>
+
+     </div>
+    </div>
+  </div></div></div>
