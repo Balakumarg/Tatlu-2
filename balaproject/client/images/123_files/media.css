@@ -1,0 +1,564 @@
+@charset "utf-8";
+
+/* CSS Document Sachin Hande 9167760198*/
+
+@media only screen and (min-width : 240px) and (max-width : 1024px) {
+	input {
+  -webkit-appearance: none !important;
+
+}
+video{width:100%!important;}
+section {
+	overflow: hidden;
+	text-align: left!important;
+	-webkit-appearance: none !important;
+}
+header .wrapper {
+	text-align: center;
+}
+.wrapper {
+	width: 100%;
+}
+.Centres_Excellence {
+	width: 100%;
+}
+.Centres_Excellence h1 {
+	width: 8%;
+	font-size: 14px;
+}
+.Centres_Excellence ul {
+	width: 85%;
+}
+.col-md-12 {
+	width: 100%;
+}
+#Inner_nav ul {
+	display: block!important;
+}
+.content {
+	font-size: 13px;
+}
+}
+ @media only screen and (min-width : 220px) and (max-width : 860px) {
+.logo {
+	float: none;
+	margin: 0;
+}
+.toplinks {
+	width: 100%;
+	text-align: center;
+}
+.search_box {
+	width: 96%;
+	margin: 2% 0 0 2%
+}
+.search_box input {
+	width: 79%;
+}
+.toplinks img {
+	width: 6%;
+	margin-top: 10px;
+}
+.Call_Ambulance {
+	width: 87%;
+	margin-right: 0;
+	margin-left: 1%;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.Select_Hospital {
+	padding-bottom: 10px;
+}
+.Select_Hospital, .Select_Hospital select {
+	width: 96%;
+	margin: 10px 0 0 2%;
+	font-size: 14px;
+}
+.Select_Hospital label {
+	font-size: 14px;
+	margin-bottom: 0!important;
+}
+.Select_Hospital select {
+	margin-top: 0!important;
+}
+.toggle_button {
+	display: block;
+}
+nav ul {
+	display: none;
+	width: 99%;
+	float: left;
+}
+nav a {
+	line-height: normal!important;
+	padding: 10px;
+}
+nav a:hover {
+	border: none;
+	line-height: normal!important;
+	background: #db4438;
+	color: #fff;
+}
+nav li ul, nav ul div {
+	position: relative;
+	left: 0!important;
+	top: 0;
+	margin: 0!important;
+	width: 98%!important;
+	float: none;
+	background: #dadada;
+}
+nav li {
+	width: 100%!important;
+	border: 1px solid #B4B4B4;
+	border-bottom: none;
+}
+nav li ul a {
+	background: #eaeaea;
+	line-height: normal;
+	border-bottom: 1px solid #B4B4B4;
+}
+.Centres_Excellence {
+	position: relative;
+}
+.Centres_Excellence h1 {
+	width: 100%;
+	font-size: 18px;
+	padding: 10px 0;
+}
+.Centres_Excellence ul {
+	width: 100%;
+}
+.Find_Doctor {
+	margin-bottom: 0;
+}
+.Find_Doctor form {
+	width: 88%;
+margin: 0 auto;
+	padding: 10px 0;
+}
+.Find_Doctor label {
+	margin: 0 2%;
+}
+.Find_Doctor label {
+	width: 100%;
+	display: block;
+	margin-top: 2%;
+	font-size: 14px;
+	font-weight: bold;
+}
+.Find_Doctor select {
+	width: 96%!important;
+	margin: 1% 0 0 2%;
+}
+.Find_Doctor input {
+	width: 96%!important;
+	margin: 3% 0 2% 2%;
+}
+.col-md-4 {
+	width: 96%;
+}
+.col-md-4 li {
+	width: 15%;
+}
+.col-md-4 li img {
+	width: 100%;
+}
+.col-md-4 li:nth-child(2n) {
+	width: 76%;
+	float: left;
+	margin-left: 2%;
+}
+.col-md-4 form {
+	width: 88%;
+}
+.Bottom_Links {
+	padding: 10px 0;
+}
+.Bottom_Links ul {
+	padding: 0 10px;
+}
+.Bottom_Links li {
+	width: 50%;
+}
+.Bottom_Links h1 {
+	background: none;
+	border-bottom: 1px solid #CCC;
+	font-size: 14px;
+	padding: 10px 0;
+}
+.Bottom_Links dt {
+	display: inline-block;
+	float: none;
+}
+.Bottom_Links form {
+	width: 96%;
+	padding: 0 2%;
+	float: left;
+	border-radius: 0
+}
+.Bottom_Links input {
+	width: 96%;
+	position: relative!important;
+	border-radius: 5px 5px 5px 5px!important;
+}
+footer {
+	padding: 10px 0;
+}
+footer ul {
+	float: left;
+	width: 95%;
+	margin-left: 2%;
+}
+.Social_Links {
+	display: none;
+}
+.inhomebot {
+	padding: 10px 0;
+}
+.inhomebot li {
+	width: 100%!important;
+	margin: 0!important;
+}
+.inhomebot li h1 {
+	padding: 10px 5px;
+}
+.inhomebot li p {
+	padding: 0 5px!important;
+	margin: 0!important;
+}
+.inhomebot li form p {
+	padding: 2px!important;
+}
+h1.ApptHead {
+	padding-left: 25px!important;
+	padding-top: 10px;
+}
+.hh {
+	width: 99%;
+}
+.hh img {
+	height: auto;
+}
+.left_column {
+	width: 96%!important;
+	padding: 0 2%;
+}
+.left_column h1 {
+	clear: both;
+	padding-top: 10px;
+}
+.left_column ul {
+	padding-left: 0;
+}
+.right_column {
+	width: 96%!important;
+	padding: 0 2%!important;
+	float: left;
+}
+.left_left {
+	width: 96% !important;
+	
+	float: left;
+}
+.left_right {
+	width: 96% !important;
+	
+	float: left;
+}
+
+.left_right input[type="submit"], .left_right input, .left_right select{
+width:85% !important;
+}
+
+
+iframe {
+	width: 100%!important;
+}
+input[type="submit"] {
+	width: 96%!important;
+	font-size: 14px!important;
+	padding: 2% 0!important;
+	margin-left: 2%!important;
+	margin-right: 2%!important
+}
+.breadcum ul {
+	padding-left: 2%;
+}
+.event_left {
+	width: 96%!important;
+	padding: 0 2%;
+}
+.event_right {
+	width: 96%!important;
+	padding: 1% 2%;
+}
+.col-3 {
+	width: 96%;
+	padding: 1% 2%;
+}
+.col-4 {
+	width: 96%;
+	padding: 1% 2%;
+}
+.col-5 {
+	width: 96%;
+	padding: 1% 2%;
+}
+.col-6 {
+	width: 96%;
+	padding: 1% 2%;
+}
+.col-7 {
+	width: 96%;
+	padding: 1% 2%;
+}
+.Current_Openings {
+	padding: 10px 2%;
+	width: 96%;
+}
+.Current_Openings p {
+	width: 100%;
+}
+.Current_Openings p label {
+	width: 100%;
+	padding-bottom: 1%;
+}
+.Current_Openings p input {
+	width: 90%;
+	margin-bottom: 2%;
+}
+.Current_Openings p select {
+	width: 100%;
+	margin-bottom: 2%;
+}
+.mtop10 {
+	margin: 0 0 2% 0;
+}
+.testimonials li {
+	width: 88%!important;
+}
+.page_heading {
+	padding-left: 2%;
+}
+.breadcum {
+	margin-bottom: 10px;
+}
+.column_head {
+	font-size: 14px;
+}
+label {
+	width: 100%!important;
+}
+.contactus label {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+.contactus input {
+	width: 96%;
+	margin-bottom: 5px;
+}
+.contactus select {
+	width: 99%!important;
+	margin-bottom: 5px;
+}
+.contactus textarea {
+	width: 96%!important;
+	margin-bottom: 5px;
+}
+}
+ @media only screen and (min-width : 220px) and (max-width : 480px) {
+li {
+	width: 100%!important;
+}
+.Centres_Excellence li {
+	width: 33%;
+}
+.Centres_Excellence li:last-child {
+	width: 100%;
+}
+.arrow_divider {
+	top: 7px;
+	left: 35px;
+}
+.btn {
+	position: absolute;
+	top: 10px;
+	text-indent: -9999px;
+	width: 21px;
+	height: 35px;
+	border: none;
+}
+.btn--previous {
+	left: 10px;
+}
+.btn--next {
+	left: 40px;
+}
+.banner_info {
+	position: relative;
+	top: 0;
+	padding: 10px;
+	width: 96%;
+}
+.Bottom_Links li {
+	width: 100%;
+}
+.banner_txt {
+	display: none;
+}
+.col-md-4 form label {
+	width: 100%;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+.col-md-4 form input {
+	width: 95%;
+}
+.col-md-4 form textarea {
+	width: 95%;
+}
+.col-md-4 form select {
+	width: 99%!important;
+	margin-bottom: 5px;
+}
+.award_list li {
+	width: 100%;
+}
+.Specialities li {
+	width: 100%;
+	margin: 2% 0;
+}
+.TabbedPanelsTab {
+	width: 100%;
+	padding: 4% 5px!important;
+	font-size: 14px!important;
+}
+.mission h3 {
+	font-size: 14px;
+}
+.dc {
+	width: 100%!important;
+}
+.dc li img {
+	width: 100%;
+	height: auto;
+}
+.subheading {
+	font-size: 18px;
+	padding: 10px 0;
+}
+.breadcum li {
+	width: auto!important;
+}
+.helpline_numbers p span{float:none!important; width:auto!important;}
+.wallop-slider__list{ /* height:60vh; */ }
+}
+ @media only screen and (min-width : 861px) and (max-width : 1000px) {
+.Find_Doctor form {
+	padding: 10px;
+}
+.col-md-4 li img {
+	width: 100%;
+}
+#Inner_nav li {
+	width: 14.15%;
+}
+.wrapper {
+	text-align: left!important;
+}
+}
+
+/* Smartphones (landscape) ----------- */
+
+@media only screen and (min-width : 321px) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* Smartphones (portrait) ----------- */
+
+@media only screen and (max-width : 320px) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* iPads (landscape) ----------- */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* iPads (portrait) ----------- */
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (min-width : 1224px) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* Large screens ----------- */
+
+@media only screen and (min-width : 1824px) {
+.btn {
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+}
+
+ 
+
+/* iPhone 5 (portrait &amp; landscape)----------- */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* iPhone 5 (landscape)----------- */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+/* STYLES GO HERE */
+
+}
+
+ 
+
+/* iPhone 5 (portrait)----------- */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+/* STYLES GO HERE */
+
+}

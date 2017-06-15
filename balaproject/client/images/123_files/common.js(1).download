@@ -1,0 +1,46 @@
+$(".toggle_button").click(function(){
+  $("nav ul:nth-child(1)").toggle('slow');
+  $("nav").addClass('LinkTest');
+});
+
+(function() {
+    'use strict';
+    // New isntance of WallopSlider
+    var photoSlider = new WallopSlider('.photo-slider');
+})();
+
+$(document).ready(function(){ 	
+
+			$(window).scroll(function(){
+				if ($(this).scrollTop() > 100) {
+					$('.scrollup').fadeIn();
+					$('.Social_Links').fadeIn();
+					//$('.Social_Links a').css('opacity','0.5');
+				} else {
+					$('.scrollup').fadeOut();
+					$('.Social_Links').fadeOut();
+					//$('.Social_Links a').css('opacity','0.5');
+				}
+			});
+			$('.scrollup').click(function(){
+				$("html, body").animate({ scrollTop: 0 }, 600);
+				return false;
+			});
+		});
+		
+jQuery(document).ready(function() {
+         var photoslider = new WallopSlider('.photo-slider');
+//autoplay
+    var count = photoslider.allItemsArrayLength;
+    var start = photoslider.currentItemIndex;
+    var end = count+1;
+    var index = start;    
+
+    jQuery(function(){
+        setInterval(function() {
+            photoslider.goTo(index);     
+            ++index;
+            if (index == end) {index=start}
+        },8000);
+    }); 
+	});
