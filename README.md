@@ -1,2 +1,2 @@
 # Tatlu-2
-project
+Medical Project
